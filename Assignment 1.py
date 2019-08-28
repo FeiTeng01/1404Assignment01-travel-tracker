@@ -107,31 +107,31 @@ def visited_places(All_Places):                          # This is to mark a pla
         return All_Places
 
 
-#variable determine function (refer to line 105
-def vari_number(choice):
+#variable determine function (refer to line 101
+def vari_number(choice):                     
     valid = False
     while not valid:
         try:
-            input_number = int(input(choice))
-            if input_number < 0:
-                print("Number must be >= 0")
-            elif input_number >= 4:
+            input_number = int(input(choice))     #connet to the input and make this as a number
+            if input_number < 0:            
+                print("Sorry, please enter a vaild number, Number must be >= 0")
+            elif input_number >= 4:              
                 print("place number not in the list")
             else:
-                return input_number
-        except ValueError:
+                return input_number   # ask again
+        except ValueError:            #except error
             print("Invalid input; enter a valid number")
 
 #add new places function#
-def added_newplaces():
-    added = []
-    place_name = type_input("Name: ")
-    place_country = type_input("Country: ")
-    place_priority = str(number_priority("priority: "))
+def added_newplaces():                              
+    added = []                                                 #create list
+    place_name = type_input("Please enter the name of the place: ")                          #place name
+    place_country = type_input("Please enter the Country of the place: ")                    #place country
+    place_priority = str(number_priority("Please enter the priority of the place: "))        #place priority
     added.append(place_name)
     added.append(place_country)
-    added.append(place_priority)
-    added.append("n")
+    added.append(place_priority)       
+    added.append("n")                             #input the above information to the travel tracker
     print(place_name, "in", place_country, "(priority {:4})".format(place_priority),
           "added to Travel Tracker")
     return added
