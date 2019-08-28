@@ -174,6 +174,7 @@ def save_to_file(all_places):   # This function is used to write the travel trac
     final_save.close()   # Close the csv file
 
 
+if __name__ == '__main__':
     main()
 
 
