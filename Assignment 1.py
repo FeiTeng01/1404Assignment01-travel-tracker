@@ -74,16 +74,16 @@ def List_Places(All_Places):
 
 #visited places marking function#
 
-def visited_places(All_Places):
-    count = 0
-    for i in range(len(All_Places)):
-        if All_Places[i][3] == "n":
-            count += 1
-            symbol = "*"
+def visited_places(All_Places):                          # This is to mark a place as visited
+    count = 0                                            # first to declare the variable
+    for i in range(len(All_Places)):                     #use the for loop with constant i
+        if All_Places[i][3] == "n":                      # cheak the status of the place
+            count += 1                                   #count +1 if it's been visited
+            symbol = "*"                                  #add symbol
         else:
-            symbol = " "
-        print(" ", symbol, str(i) + ".", "", end="")
-        for k in range(len(All_Places[i]) - 2):
+            symbol = " "                                           
+        print(" ", symbol, str(i) + ".", "", end="")             #to show the result
+        for k in range(len(All_Places[i]) - 2):                    
             if k == 1:
                 dash = "in"
             else:
@@ -97,13 +97,13 @@ def visited_places(All_Places):
 
 
     elif count >= 0:
-        print(len(All_Places) - count, "  places ,", "You still want to visit ",count, "places")
-    place_number = vari_number("Enter the number of a place to mark as visited\n>>> ")
-    if All_Places[place_number][3] == "v":
+        print(len(All_Places) - count, "  places ,", "You still want to visit ",count, "places")  
+    place_number = vari_number("Enter the number of a place to mark as visited\n>>> ")           #asking the code which states the city
+    if All_Places[place_number][3] == "v":                                                       # show the related info
         print("You have already visited", All_Places[place_number][0])
     else:
-        All_Places[place_number][3] = "v"
-        print(All_Places[place_number][0], "in", All_Places[place_number][1], "visited")
+        All_Places[place_number][3] = "v"                                                   #else statement for the place to be marked as visited
+        print(All_Places[place_number][0], "in", All_Places[place_number][1], "visited")        # print visited places
         return All_Places
 
 
