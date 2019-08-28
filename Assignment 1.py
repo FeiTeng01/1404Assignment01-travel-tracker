@@ -53,24 +53,24 @@ def loading_plc():
 #Travel tracker display function
 
 def List_Places(All_Places):                    
-    count = 0                                #declare the variable and start from 0
-    for i in range(len(All_Places)):            #using for loop with constant i
-        if All_Places[i][3] == "n":
-            count += 1
-            symbol = "*"
+    count = 0                                        #declare the variable and start from 0
+    for i in range(len(All_Places)):                 #using for loop with constant i
+        if All_Places[i][3] == "n":                  # This is to check the situation of the place
+            count += 1                               #If it's been visited, count then + 1
+            symbol = "*"                             #Add the label to the visited places.
         else:
-            symbol = " "
-        print(" ", symbol, str(i) + ".", "", end="")
-        for k in range(len(All_Places[i]) - 2):
-            if k == 1:
+            symbol = " "                             #else for not been visited place, hence add ""
+        print(" ", symbol, str(i) + ".", "", end="")    # This is to show the result
+        for k in range(len(All_Places[i]) - 2):           # add the dash before country
+            if k == 1:              
                 dash = "in"
             else:
-                dash = ""
-            print(dash, "{:30}".format(All_Places[i][k]), end=" ")
-        print("priority {:4}".format(All_Places[i][-2]))
+                dash = ""                                 #else add the space
+            print(dash, "{:30}".format(All_Places[i][k]), end=" ")    #organising format
+        print("priority {:4}".format(All_Places[i][-2]))             
     if count == 0:
         print("No places left to visit. Why not add a new place")
-    print(len(All_Places), "places.", "You still want to visit", count,"places" )
+    print(len(All_Places), "places.", "You still want to visit", count,"places" )      #show the count of visited places   
 
 #visited places marking function#
 
