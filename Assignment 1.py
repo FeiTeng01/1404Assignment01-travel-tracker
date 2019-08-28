@@ -34,29 +34,27 @@ def main():
             print("Sorry, the choice you have entered is invalid, please enter a valid choice.")
 
         print(menu)
-        choice = input("Enter your choice"). upper()
         save_to_file(All_Places)
-        if choice == "Q":
-            print("places saved to",'places.csv',"\n updated to song.csv, have a nice day.")
+       print("places saved to",'places.csv',"\n updated to places.csv, have a nice day.")
 
 #CSV function #
-def loading_plc():
-    All_Places = []
-    places_csv = open('places.csv','r')
-    for line in places_csv:
-        line = line.strip("\n")
-        place_name_country_priority = line.split(",")
-        All_Places.append(place_name_country_priority)
-    places_csv.close()
+def loading_plc():           
+    All_Places = []                                             #using list to achieve data saving
+    places_csv = open('places.csv','r')                         #open the file with read mode.
+    for line in places_csv:                                     #use for loop
+        line = line.strip("\n")                                 #for line striping
+        place_name_country_priority = line.split(",")           #for spliting the line
+        All_Places.append(place_name_country_priority)          #define the data format to be saved.
+    places_csv.close()                                          #close the file
     return All_Places
 
 
 
 #Travel tracker display function
 
-def List_Places(All_Places):
-    count = 0
-    for i in range(len(All_Places)):
+def List_Places(All_Places):                    
+    count = 0                                #declare the variable and start from 0
+    for i in range(len(All_Places)):            #using for loop with constant i
         if All_Places[i][3] == "n":
             count += 1
             symbol = "*"
