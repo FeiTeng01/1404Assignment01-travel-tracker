@@ -133,23 +133,25 @@ def added_newplaces():
     added.append(place_priority)       
     added.append("n")                             #input the above information to the travel tracker
     print(place_name, "in", place_country, "(priority {:4})".format(place_priority),
-          "added to Travel Tracker")
+          "added to Travel Tracker")              # show update info
     return added
 
-
-def type_input(choice):
-    type_string = input(choice)
-    while len(type_string) == 0:
-        print("Sorry, your input should not be blank.")
-        type_string = input(choice)
+#error checking function#
+def type_input(choice):                                                       
+    type_string = input(choice)                  #choose all input
+    while len(type_string) == 0:                    #while loop for blank input
+        print("Sorry, your input should not be blank.")         
+        type_string = input(choice)                      #reask about the input
     return type_string.title()
 
-def number_priority(choice):
-    vaild = False
-    while not vaild:
-        try:
-            typein_number = int(input(choice))
-            if typein_number < 0:
+
+#priority checking function
+def number_priority(choice):   
+    vaild = False      #make it as false
+    while not vaild:        
+        try:                                    
+            typein_number = int(input(choice))          #choose all integer
+            if typein_number < 0:                   
                 print("Sorry, the number has to be greater than 0")
             else:
                 return typein_number
@@ -172,7 +174,6 @@ def save_to_file(all_places):   # This function is used to write the travel trac
     final_save.close()   # Close the csv file
 
 
-if __name__ == '__main__':
     main()
 
 
