@@ -16,25 +16,23 @@ Q- quit
 # Menu and choises printing function #
 def main():
     print("Welcome to travel tracker Ver 1.0 - Fei Teng ")
-    print(menu)
-    print("Please enter your choice.")
-    choice = input("Enter your choice"). upper()
-    All_Places = loading_plc()
-    while choice != "Q" :
+    print(menu)                                                    #This is for printing menu 
+    choice = input("Please Enter your choice"). upper()            # asking about the input for choice been made.
+    All_Places = loading_plc()                                     #function connect to each other by using this.
+    while choice != "Q" :                                          # if choice is Q, it will process end.
 
-        if choice == "L":
+        if choice == "L":                                          #link the choice L to the list_places function
             List_Places(All_Places)
 
-        elif choice == "A":
+        elif choice == "A":                                        #link the choice A to the added_newplaces function
             All_Places.append(added_newplaces())
 
-        elif choice == "M":
+        elif choice == "M":                                        #link the choice M to the visited_places function
            visited_places(All_Places)
 
-        else:
+        else:                                                      #text displayed when entering other choices.
             print("Sorry, the choice you have entered is invalid, please enter a valid choice.")
 
-            choice = input("Enter your choice.").upper()
         print(menu)
         choice = input("Enter your choice"). upper()
         save_to_file(All_Places)
